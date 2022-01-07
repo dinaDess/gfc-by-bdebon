@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 90vh;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  font-weight: 800;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 950px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+main {
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.steps {
+  text-transform: uppercase;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 175px;
+}
+
+.step h2 {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+  color: #fff;
+  background-color: #e23e57;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step h2:not(.four h2)::after {
+  content: "";
+  display: inline-block;
+  width: 270px;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  z-index: -1;
+}
+
+.step.one h2::after {
+  border: 2px dashed #161965;
+}
+
+.step.two h2::after,
+.step.three h2::after {
+  border: 2px dashed #e23e57;
+}
+
+.one p,
+.two p {
+  color: #e23e57;
+}
+
+.three h2,
+.four h2 {
+  background-color: #161965;
+}
+
+.three p,
+.four p {
+  color: #161965;
+}
+
+.step:hover p {
+  animation: slide 0.5s ease-in-out;
+}
+
+.p-container {
+  height: 20px;
+  overflow-y: hidden;
+  margin: 1rem;
+}
+
+.step p {
+  margin: 0;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(50px);
+  }
+
+  51% {
+    transform: translateY(-50px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.buttons {
+  margin-top: 3rem;
+}
+
+@media screen and (max-width: 992px) {
+  .steps {
+    flex-direction: column;
+  }
+
+  .step {
+    flex-direction: row;
+    width: 250px;
+    gap: 1rem;
+  }
+
+  .step h2:not(.four h2)::after {
+    height: 180px;
+    width: 0;
+    left: 50%;
+  }
+}
